@@ -12,6 +12,6 @@ import java.util.List;
 public interface PlaylistRepository extends PagingAndSortingRepository<Playlist, Long>, JpaSpecificationExecutor<Playlist> {
 
     List<Playlist> findAllByUser(User user);
-//    List<Playlist> findAllByTitleContainingUser(String search, User user);
+    List<Playlist> findAllByNameContainingOrUserContaining(String search, User user);
 
 }
