@@ -1,0 +1,68 @@
+.sidebar {
+  background: #fafafa !important;
+  border: none;
+  min-width: 18% !important;
+
+
+  a {
+    font-family: Avenir, Avenir Next, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 16px !important;
+    color: #9a9da2;
+    font-weight: 500;
+    padding: 20px 0 20px 45px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &.like {
+      padding: 20px 0 20px 75px !important;
+      color: #c9c9ca;
+    }
+
+
+    fa-icon {
+      color: #cdcacd;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+
+    &.item:before {
+      height: 0 !important;
+      background-color: transparent;
+    }
+
+
+
+    &:hover {
+      background-color: #f2f3f8 !important;
+      color: #9a9da2;
+    }
+  }
+}
+
+.logo {
+  width: 100%;
+  padding: 30px 0 30px 40px !important;
+
+
+  span {
+    font-family: Avenir, Avenir Next,'Helvetica Neue', Arial, Helvetica, sans-serif;
+    padding-top: 10px;
+    font-weight: 800;
+    margin-left: 5px !important;
+    font-size: 18px !important;
+    color: #545153 !important;
+  }
+
+
+  img {
+    width: 70px !important;
+    height: 70px;
+  }
+}
+
+
+.ui.menu {
+  box-shadow: none !important;
+}

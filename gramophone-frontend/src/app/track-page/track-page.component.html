@@ -1,0 +1,94 @@
+<div class="ui two columns grid" style="padding-top: 50px" *ngIf="track">
+  <div class="nine wide column content">
+    <div class="ui two columns grid header">
+      <div class="column song-info">
+        <h3>{{ track.title }}</h3>
+        <span>{{ track.wordAuthor }}</span>
+      </div>
+      <div class="column text-right feed">
+        <a class="ui label">
+          <i class="play icon"></i>
+          {{ track.listeningAmount | listeningAmountPipe }}
+        </a>
+        <a class="ui label">
+          <i class="thumbs up icon"></i>
+          {{ 0 | buttonSubFormatPipe }}
+        </a>
+        <a class="ui label">
+          <i class="thumbs down icon"></i>
+          {{ 0 | buttonSubFormatPipe }}
+        </a>
+        <a class="ui label">
+          <i class="share icon"></i>
+        </a>
+      </div>
+    </div>
+    <div class="waves">
+      <img src="../../assets/images/waves.png" alt="">
+    </div>
+    <div class="ui two columns grid description">
+      <div class="ten wide column text-left text">
+        <a href="">
+          <img [src]="track.performer.avatar ? track.performer.avatar : '../../assets/images/ava.png'" alt="">
+          <div class="username">{{ track.performer.username }}</div>
+          <div class="createAt"><span>Опубликовано:</span> {{ track.createAt | date: 'dd MMMM yyyy г.' }}</div>
+        </a>
+      </div>
+      <div class="six wide column text-center subs">
+        <button class="ui red button">Подписаться {{ track.performer.subscribers.length > 0 ? track.performer.subscribers.length : '' | buttonSubFormatPipe }}</button>
+      </div>
+    </div>
+    <div class="authors-info">
+      <div class="wordAuthor">
+        <span>Автор слов:</span> {{ track.wordAuthor }}
+      </div>
+      <div class="singer">
+        <span>Исполнитель:</span> {{ track.performer.infoSinger.firstName + ' ' + track.performer.infoSinger.lastName }}
+      </div>
+      <div class="musicAuthor">
+        <span>Автор музыки:</span> {{ track.musicAuthor }}
+      </div>
+    </div>
+    <div class="comments">
+      <h3 class="comment-count">{{ track.comments.length }} коментария</h3>
+      <form action="" [formGroup]="commentForm">
+        <img [src]="currentUser.avatar ? currentUser.avatar : '../../assets/images/ava.png'">
+        <mat-form-field class="example-full-width" [floatLabel]="'never'">
+          <textarea matInput placeholder="Оставить комментарий" (focus)="myFocusVar = true" (blur)="myFocusVar = false"
+                    formControlName="comment" mat-autosize matTextareaAutosize></textarea>
+        </mat-form-field>
+        <button class="ui button right floated confirm-comment" [hidden]="!f.comment.value && !myFocusVar" (click)="sendComment()"
+                [ngStyle]="f.comment.value ? { backgroundColor: '#4285f4' } : { backgroundColor: '#767676' }">Оставить
+          комментарий
+        </button>
+        <button class="ui button right floated" [hidden]="!f.comment.value && !myFocusVar">Отменить</button>
+      </form>
+    </div>
+    <div class="comments-list">
+      <div class="comments-list-item" *ngFor="let comment of track.comments">
+        <img [src]="comment.user.avatar ? comment.user.avatar : '../../assets/images/ava.png'">
+        <div class="who">{{ comment.user.username }} <span>2 часа назад</span></div>
+        <div class="comment-text">{{ comment.content }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="seven wide column proposed">
+    <div class="album">
+      <img src="../../assets/images/example.png" alt="" width="100%">
+      <div class="prediction-tracks-list">
+        <div class="ui relaxed divided list">
+          <div class="item prediction-track">
+            <button>
+              <fa-icon [icon]="['fas', 'play-circle']"></fa-icon>
+              <fa-icon [icon]="['fas', 'pause-circle']" [hidden]="true"></fa-icon>
+            </button>
+            <div class="bandAndSong">Весело живем - Вася Пупкин <span class="time">3:15</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

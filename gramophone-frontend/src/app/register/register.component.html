@@ -1,0 +1,23 @@
+<div class="register">
+  <div class="ui text-center big header">Регистрация</div>
+  <form class="ui form" [formGroup]="registerForm">
+    <div class="field">
+      <label>Логин</label>
+      <input type="text" formControlName="username">
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input type="text" formControlName="email">
+    </div>
+    <div class="field">
+      <label>Пароль</label>
+      <input type="password" autocomplete="new-password" formControlName="password">
+    </div>
+    <div class="field">
+      <label>Подтвердить пароль</label>
+      <input type="password" autocomplete="current-password" formControlName="password2">
+    </div>
+    <button class="ui button" type="submit" (click)="onSubmited()">Зарегистрироваться
+    </button>
+  </form>
+</div>

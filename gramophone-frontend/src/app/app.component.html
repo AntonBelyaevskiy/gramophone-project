@@ -1,0 +1,15 @@
+<app-sidebar></app-sidebar>
+<app-navbar></app-navbar>
+
+<div [@routeAnimations]="o && o.activatedRouteData
+      && o.activatedRouteData['animation']" class="main">
+  <app-playlist></app-playlist>
+  <router-outlet #o="outlet"></router-outlet>
+</div>
+
+<app-music-player></app-music-player>
+<app-login></app-login>
+
+
+
+
