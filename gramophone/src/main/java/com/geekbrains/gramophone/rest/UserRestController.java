@@ -6,13 +6,16 @@ import com.geekbrains.gramophone.services.InfoSingerService;
 import com.geekbrains.gramophone.services.UploadService;
 import com.geekbrains.gramophone.services.UserService;
 import io.swagger.annotations.Api;
+import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import sun.rmi.runtime.Log;
 
-
+@Log4j
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("api/v1/users")
@@ -40,6 +43,7 @@ public class UserRestController {
 
     @GetMapping("")
     public Iterable<User> getAllUsers() {
+
         return userService.findAll();
     }
 
