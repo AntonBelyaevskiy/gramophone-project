@@ -1,6 +1,9 @@
 package com.geekbrains.gramophone.services;
 
-import com.geekbrains.gramophone.entities.*;
+import com.geekbrains.gramophone.entities.Genre;
+import com.geekbrains.gramophone.entities.LikeType;
+import com.geekbrains.gramophone.entities.Track;
+import com.geekbrains.gramophone.entities.User;
 import com.geekbrains.gramophone.exceptions.NotFoundException;
 import com.geekbrains.gramophone.repositories.GenreRepository;
 import com.geekbrains.gramophone.repositories.TrackRepository;
@@ -14,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.transaction.Transactional;
-import java.io.File;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
